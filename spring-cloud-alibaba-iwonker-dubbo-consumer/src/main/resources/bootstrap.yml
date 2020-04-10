@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: spring-cloud-alibaba-iwonker-dubbo-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: poodle.wonker:8848
+      config:
+        server-addr: poodle.wonker:8848
+#    sentinel:
+#      transport:
+#        dashboard: localhost:9999
+
+server:
+  port: 8091
+
+dubbo:
+  scan:
+    base-packages: com.iwonker
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: spring-cloud://localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
